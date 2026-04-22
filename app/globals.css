@@ -1,0 +1,154 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-cormorant);
+  --font-heading: var(--font-cinzel);
+  --font-mono: var(--font-geist-mono);
+  --color-gold: #C9A84C;
+  --color-gold-light: #E8C96A;
+  --color-gold-bright: #FFD966;
+  --color-gold-dark: #8B6914;
+  --color-black: #080808;
+  --color-deep: #111111;
+  --color-cream: #F7F2E8;
+  --color-cream-dim: #D4C9B0;
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+:root {
+  --background: #050505;
+  --foreground: #F7F2E8;
+  --card: #080808;
+  --card-foreground: #F7F2E8;
+  --popover: #111111;
+  --popover-foreground: #F7F2E8;
+  --primary: #C9A84C;
+  --primary-foreground: #080808;
+  --secondary: #111111;
+  --secondary-foreground: #F7F2E8;
+  --muted: #111111;
+  --muted-foreground: #D4C9B0;
+  --accent: #C9A84C;
+  --accent-foreground: #080808;
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: rgba(201, 168, 76, 0.25);
+  --input: rgba(201, 168, 76, 0.15);
+  --ring: #C9A84C;
+  --chart-1: #C9A84C;
+  --chart-2: #E8C96A;
+  --chart-3: #FFD966;
+  --chart-4: #8B6914;
+  --chart-5: #D4C9B0;
+  --radius: 0.25rem;
+  --sidebar: #080808;
+  --sidebar-foreground: #F7F2E8;
+  --sidebar-primary: #C9A84C;
+  --sidebar-primary-foreground: #080808;
+  --sidebar-accent: #111111;
+  --sidebar-accent-foreground: #F7F2E8;
+  --sidebar-border: rgba(201, 168, 76, 0.15);
+  --sidebar-ring: #C9A84C;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-cormorant), 'Cormorant Garamond', serif;
+  }
+  html {
+    @apply font-sans;
+  }
+}
+
+/* Custom animations */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+.animate-fade-up {
+  animation: fadeUp 1.2s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.animate-shimmer {
+  background-size: 200% auto;
+  animation: shimmer 4s linear infinite;
+}
+
+/* Animation delays */
+.delay-100 { animation-delay: 100ms; }
+.delay-200 { animation-delay: 200ms; }
+.delay-300 { animation-delay: 300ms; }
+.delay-400 { animation-delay: 400ms; }
+.delay-500 { animation-delay: 500ms; }
+.delay-600 { animation-delay: 600ms; }
+.delay-700 { animation-delay: 700ms; }
+.delay-800 { animation-delay: 800ms; }
+.delay-900 { animation-delay: 900ms; }
+
+/* Gold gradient text */
+.text-gold-gradient {
+  background: linear-gradient(135deg, #FFD966, #C9A84C, #8B6914);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
