@@ -209,7 +209,7 @@ export default function Home() {
                 }}
               >
                 <MapPin className="w-3.5 h-3.5" />
-                click here for direction
+                lafto, lehulum real estate
               </a>
 
             </div>
