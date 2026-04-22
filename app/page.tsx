@@ -128,7 +128,8 @@ export default function Home() {
                 <TextScramble
                   phrases={phrases}
                   chars="!<>-_\\/[]{}—=+*^?#________"
-                  pauseMs={1200}
+                  scrambleMs={400}
+                  pauseMs={2600}
                   autoStart={true}
                   loop={false}
                   textClass="text-xl sm:text-2xl md:text-3xl font-semibold tracking-tight text-[#C9A84C]"

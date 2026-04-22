@@ -7,8 +7,10 @@ type TextScrambleProps = {
   phrases: string[];
   /** Characters used for the scrambling effect */
   chars?: string;
-  /** Delay between phrase completions and the next phrase (ms) */
+  /** Time each phrase stays readable after scramble completes (ms) */
   pauseMs?: number;
+  /** Fixed duration of the scramble animation for every phrase (ms) */
+  scrambleMs?: number;
   /** Start automatically on mount */
   autoStart?: boolean;
   /** Loop through phrases forever */
@@ -33,6 +35,7 @@ const TextScramble = ({
   phrases,
   chars = '!<>-_\\/[]{}—=+*^?#________',
   pauseMs = 800,
+  scrambleMs = 400,
   autoStart = true,
   loop = true,
   textClass = 'text-3xl font-semibold text-white',
@@ -42,7 +45,6 @@ const TextScramble = ({
   const containerRef = useRef<HTMLDivElement | null>(null);
   const frameRef = useRef<number | null>(null);
   const queueRef = useRef<QueueItem[]>([]);
-  const frameCountRef = useRef(0);
   const [index, setIndex] = useState(0);
 
   // core: scramble one phrase into the next
@@ -54,25 +56,29 @@ const TextScramble = ({
     for (let i = 0; i < length; i++) {
       const from = oldText[i] || '';
       const to = newText[i] || '';
-      const start = Math.floor(Math.random() * 40);
-      const end = start + Math.floor(Math.random() * 40);
+      const start = Math.floor(Math.random() * Math.max(1, scrambleMs * 0.55));
+      const end = Math.min(
+        scrambleMs,
+        start + Math.floor(Math.random() * Math.max(1, scrambleMs * 0.45))
+      );
       q.push({ from, to, start, end });
     }
     queueRef.current = q;
-    frameCountRef.current = 0;
+    const startedAt = performance.now();
 
     return new Promise<void>((resolve) => {
-      const step = () => {
+      const step = (now: number) => {
+        const elapsed = now - startedAt;
         let output = '';
         let complete = 0;
         const queue = queueRef.current;
 
         for (let i = 0; i < queue.length; i++) {
           let { from, to, start, end, char } = queue[i];
-          if (frameCountRef.current >= end) {
+          if (elapsed >= end) {
             complete++;
-            output += to;
-          } else if (frameCountRef.current >= start) {
+            output += escapeHtml(to);
+          } else if (elapsed >= start) {
             if (!char || Math.random() < 0.28) {
               char = randomChar(chars);
               queue[i].char = char;
@@ -88,7 +94,6 @@ const TextScramble = ({
         if (complete === queue.length) {
           resolve();
         } else {
-          frameCountRef.current++;
           frameRef.current = requestAnimationFrame(step);
         }
       };
@@ -120,7 +125,7 @@ const TextScramble = ({
       cancelAnimationFrameSafe(frameRef.current);
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [autoStart, index, loop, pauseMs, phrases.join('|')]);
+  }, [autoStart, index, loop, pauseMs, phrases.join('|'), scrambleMs]);
 
   return (
     <div className="container">
