@@ -202,13 +202,13 @@ export default function Home() {
                 href="https://maps.app.goo.gl/bH3Kh7YvNnj6mc6Y9"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2.5 mb-8 text-[16px] italic text-[#D4C9B0] tracking-wide transition-all duration-200 hover:text-[#FFD966] hover:opacity-85"
+                className="flex items-center gap-3 mb-8 text-[18px] italic text-[#D4C9B0] tracking-wide transition-all duration-200 hover:text-[#FFD966] hover:opacity-85"
                 style={{
                   fontFamily: 'var(--font-cormorant), Cormorant Garamond, serif',
                   animation: 'fadeUp 1.2s 750ms cubic-bezier(0.22, 1, 0.36, 1) both, bounce 1.6s ease-in-out 2s infinite',
                 }}
               >
-                <MapPin className="w-5 h-5" />
+                <MapPin className="w-6 h-6" />
                 lafto, lehulum real estate
               </a>
 
