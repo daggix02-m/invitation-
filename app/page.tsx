@@ -96,7 +96,7 @@ export default function Home() {
                   fontFamily: 'var(--font-cinzel), Cinzel, serif',
                 }}
               >
-                <span className="text-[12px] font-semibold tracking-[0.35em] text-[#C9A84C] uppercase">
+                <span className="text-[13px] font-semibold tracking-[0.35em] text-[#C9A84C] uppercase">
                   INVITATION
                 </span>
               </div>
@@ -132,7 +132,7 @@ export default function Home() {
                   pauseMs={2600}
                   autoStart={true}
                   loop={false}
-                  textClass="text-xl sm:text-2xl md:text-3xl font-semibold tracking-tight text-[#C9A84C]"
+                  textClass="text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight text-[#C9A84C]"
                   dudClass="text-[#C9A84C]/40"
                 />
               </div>
@@ -145,7 +145,7 @@ export default function Home() {
                   fontFamily: 'var(--font-cinzel), Cinzel, serif',
                 }}
               >
-                <span className="text-[11px] font-semibold tracking-[0.3em] text-[#E8C96A] uppercase">
+                <span className="text-[12px] font-semibold tracking-[0.3em] text-[#E8C96A] uppercase">
                   Graduation Ceremony · MMXXVI
                 </span>
               </div>
@@ -163,13 +163,13 @@ export default function Home() {
                 <div className="flex flex-col items-center gap-1.5 px-2.5">
                   <div className="text-base text-[#C9A84C] mb-0.5">◈</div>
                   <div 
-                    className="text-[7px] tracking-[0.25em] text-[#C9A84C] uppercase opacity-70"
+                    className="text-[8px] tracking-[0.25em] text-[#C9A84C] uppercase opacity-70"
                     style={{ fontFamily: 'var(--font-cinzel), Cinzel, serif' }}
                   >
                     Date
                   </div>
                   <div 
-                    className="text-[13px] font-medium text-[#F7F2E8] text-center leading-tight"
+                    className="text-[14px] font-medium text-[#F7F2E8] text-center leading-tight"
                     style={{ fontFamily: 'var(--font-cormorant), Cormorant Garamond, serif' }}
                   >
                     April 26<br/>2026
@@ -183,13 +183,13 @@ export default function Home() {
                 >
                   <div className="text-base text-[#C9A84C] mb-0.5">◈</div>
                   <div 
-                    className="text-[7px] tracking-[0.25em] text-[#C9A84C] uppercase opacity-70"
+                    className="text-[8px] tracking-[0.25em] text-[#C9A84C] uppercase opacity-70"
                     style={{ fontFamily: 'var(--font-cinzel), Cinzel, serif' }}
                   >
                     Time
                   </div>
                   <div 
-                    className="text-[13px] font-medium text-[#F7F2E8] text-center leading-tight"
+                    className="text-[14px] font-medium text-[#F7F2E8] text-center leading-tight"
                     style={{ fontFamily: 'var(--font-cormorant), Cormorant Garamond, serif' }}
                   >
                     6:00 Local time
@@ -202,7 +202,7 @@ export default function Home() {
                 href="https://maps.app.goo.gl/bH3Kh7YvNnj6mc6Y9"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 mb-8 text-[11px] italic text-[#D4C9B0] tracking-wide transition-all duration-200 hover:text-[#FFD966] hover:opacity-85"
+                className="flex items-center gap-2 mb-8 text-[12px] italic text-[#D4C9B0] tracking-wide transition-all duration-200 hover:text-[#FFD966] hover:opacity-85"
                 style={{
                   fontFamily: 'var(--font-cormorant), Cormorant Garamond, serif',
                   animation: 'fadeUp 1.2s 750ms cubic-bezier(0.22, 1, 0.36, 1) both, bounce 1.6s ease-in-out 2s infinite',
